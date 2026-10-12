@@ -358,8 +358,6 @@ if (
   alert("Please configure your business email first.");
   return;
 }
-
-
       const form = new FormData(event.target);
       const subject = encodeURIComponent("SGE Tours & Travels - " + form.get("enquiryType"));
       const body = encodeURIComponent(
