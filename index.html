@@ -350,10 +350,13 @@
     document.getElementById("enquiryForm").addEventListener("submit", function (event) {
       event.preventDefault();
 
-      if (BUSINESS_EMAIL === "sgetravels9@gmail.com") {
-        alert("Before using the enquiry form, replace YOUR-EMAIL@example.com in the HTML code with your real business email address.");
-        return;
-      }
+if (
+  !BUSINESS_EMAIL ||
+  BUSINESS_EMAIL === "sgetravels9@gmail.com"
+) {
+  alert("Please configure your business email first.");
+  return;
+}
 
       const form = new FormData(event.target);
       const subject = encodeURIComponent("SGE Tours & Travels - " + form.get("enquiryType"));
