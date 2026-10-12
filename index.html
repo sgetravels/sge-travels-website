@@ -351,10 +351,7 @@
       event.preventDefault();
 
 
-if (
-  !BUSINESS_EMAIL ||
-  BUSINESS_EMAIL === "YOUR-EMAIL@example.com"
-) {
+if (!BUSINESS_EMAIL.trim()) {
   alert("Please configure your business email first.");
   return;
 }
