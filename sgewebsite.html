@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SGE Tours & Travels provides corporate transportation coordination and transport vendor partnership services.">
+  <title>SGE Tours & Travels | Corporate Transportation</title>
+  <style>
+    :root {
+      --navy: #10345b;
+      --blue: #0756b5;
+      --green: #13833b;
+      --yellow: #f5b51b;
+      --ink: #1d2b3a;
+      --muted: #5d6b79;
+      --pale: #f3f7fb;
+      --white: #ffffff;
+      --border: #dce5ee;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      line-height: 1.6;
+      background: var(--white);
+    }
+    a { color: inherit; }
+    .container { width: min(1120px, 92%); margin: 0 auto; }
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 10px 0;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .brand img { width: 150px; max-height: 74px; object-fit: contain; }
+    .brand-name { font-size: 1.05rem; font-weight: 800; color: var(--navy); line-height: 1.25; }
+    .brand-tag { font-size: .78rem; color: var(--muted); }
+    nav { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+    nav a { text-decoration: none; font-weight: 700; font-size: .92rem; color: var(--navy); }
+    nav a:hover { color: var(--green); }
+    .hero {
+      background: linear-gradient(120deg, #edf5ff 0%, #ffffff 58%, #eff9f1 100%);
+      padding: 76px 0 68px;
+      overflow: hidden;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: 42px; }
+    .eyebrow {
+      color: var(--green); font-size: .82rem; font-weight: 800; letter-spacing: 1.5px;
+      text-transform: uppercase; margin: 0 0 12px;
+    }
+    h1 { color: var(--navy); font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.08; margin: 0 0 20px; }
+    h1 span { color: var(--blue); }
+    .hero p { font-size: 1.08rem; color: var(--muted); max-width: 650px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+    .btn {
+      display: inline-block; text-decoration: none; padding: 12px 20px; border-radius: 8px;
+      font-weight: 800; border: 2px solid var(--blue); transition: .2s ease;
+    }
+    .btn-primary { background: var(--blue); color: var(--white); }
+    .btn-primary:hover { background: var(--navy); border-color: var(--navy); }
+    .btn-outline { color: var(--blue); background: var(--white); }
+    .btn-outline:hover { background: #eaf3ff; }
+    .logo-panel {
+      background: white; border: 1px solid var(--border); border-radius: 20px; padding: 24px;
+      box-shadow: 0 16px 45px rgba(16, 52, 91, .10); text-align: center;
+    }
+    .logo-panel img {
+  width: 100%;
+  max-width: 410px;
+  height: auto;
+  display: block;
+  margin-bottom: -25px;
+}
+
+.logo-panel p {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+    section { padding: 68px 0; }
+    .section-head { max-width: 720px; margin-bottom: 30px; }
+    .section-head h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--navy); line-height: 1.2; margin: 0 0 12px; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .services { background: var(--pale); }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card {
+      background: var(--white); border: 1px solid var(--border); border-radius: 14px;
+      padding: 24px; box-shadow: 0 5px 18px rgba(16, 52, 91, .04);
+    }
+    .card-icon {
+      width: 48px; height: 48px; border-radius: 12px; display: grid; place-items: center;
+      background: #eaf3ff; color: var(--blue); font-size: 1.5rem; margin-bottom: 15px;
+    }
+    .card h3 { margin: 0 0 9px; color: var(--navy); font-size: 1.15rem; }
+    .card p { margin: 0; color: var(--muted); font-size: .96rem; }
+    .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .step { border-left: 4px solid var(--yellow); padding: 8px 0 8px 18px; }
+    .step strong { display: block; color: var(--navy); margin-bottom: 5px; font-size: 1.05rem; }
+    .step p { margin: 0; color: var(--muted); }
+    .about { background: var(--navy); color: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 38px; align-items: start; }
+    .about h2 { margin: 0 0 15px; font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.2; }
+    .about p { color: #e1eaf3; }
+    .trust-list { list-style: none; margin: 0; padding: 0; }
+    .trust-list li { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.18); }
+    .trust-list li::before { content: "✓"; color: #7fe0a0; font-weight: 900; margin-right: 10px; }
+    .contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 28px; align-items: start; }
+    .contact-box { background: var(--pale); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
+    .contact-box h3 { color: var(--navy); margin-top: 0; }
+    .contact-box p { color: var(--muted); }
+    form { display: grid; gap: 14px; }
+    label { display: block; font-size: .9rem; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
+    input, select, textarea {
+      width: 100%; padding: 12px; border: 1px solid #cbd7e3; border-radius: 8px;
+      font: inherit; background: white; color: var(--ink);
+    }
+    input:focus, select:focus, textarea:focus { outline: 2px solid #a8cbf8; border-color: var(--blue); }
+    textarea { min-height: 115px; resize: vertical; }
+    button { cursor: pointer; font: inherit; }
+    .form-note { font-size: .82rem; color: var(--muted); margin: 0; }
+    footer { background: #09233f; color: #dce7f1; padding: 24px 0; }
+    .footer-row { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; align-items: center; }
+    footer p { margin: 0; font-size: .9rem; }
+    @media (max-width: 800px) {
+      .nav { align-items: flex-start; flex-direction: column; }
+      nav { gap: 12px; }
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .cards, .how-grid { grid-template-columns: 1fr; }
+      .hero { padding: 52px 0; }
+      section { padding: 52px 0; }
+      .brand img { width: 115px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="SGE Tours and Travels home" style="text-decoration:none">
+        <img src="sge-logo.jpeg" alt="SGE Tours & Travels logo">
+        <span>
+          <span class="brand-name">SGE Tours & Travels</span><br>
+          <span class="brand-tag">Corporate Transportation Solutions</span>
+        </span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Corporate Transport • Vendor Partnerships</p>
+          <h1>Reliable Corporate Transport. <span>Trusted Partnerships.</span></h1>
+          <p>
+            SGE Tours & Travels coordinates transportation requirements for businesses
+            through professional vendor and vehicle-partner relationships. We aim to make
+            corporate travel coordination dependable, organised and straightforward.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#contact">Send a Business Enquiry</a>
+            <a class="btn btn-outline" href="#services">Explore Our Services</a>
+          </div>
+        </div>
+        <div class="logo-panel">
+          <img src="sge-logo.jpeg" alt="SGE Tours & Travels company logo">
+          <p>Your Journey, Our Priority</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">What We Do</p>
+          <h2>Corporate Transportation Services</h2>
+          <p>Transport support arranged according to each client's requirements and the availability of suitable vehicles and partners.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">▦</div>
+            <h3>Employee Transportation</h3>
+            <p>Coordination of employee pickup and drop transportation based on agreed routes, schedules and service requirements.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">✈</div>
+            <h3>Airport Transfers</h3>
+            <p>Vehicle arrangements for business travellers and airport transfers, subject to confirmed booking details.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">⇄</div>
+            <h3>Corporate Travel Coordination</h3>
+            <p>Support with arranging transport for meetings, business visits and other company travel requirements.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">♧</div>
+            <h3>Vendor & Subvendor Support</h3>
+            <p>Working with transport contractors and fleet partners to coordinate vehicles for corporate requirements.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">▤</div>
+            <h3>Fleet Partner Coordination</h3>
+            <p>Connecting with vehicle owners and transport partners to help fulfil suitable, confirmed transport requests.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">✓</div>
+            <h3>Requirement-Based Service</h3>
+            <p>Clear communication about trip details, availability, timings and agreed service expectations before confirmation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Simple Process</p>
+          <h2>How It Works</h2>
+          <p>We begin by understanding your transport requirement and coordinating the next steps with the relevant partners.</p>
+        </div>
+        <div class="how-grid">
+          <div class="step">
+            <strong>1. Share Your Requirement</strong>
+            <p>Tell us your company name, service type, routes, schedule and expected vehicle needs.</p>
+          </div>
+          <div class="step">
+            <strong>2. Check Availability</strong>
+            <p>We review the details and coordinate with relevant transport partners, where applicable.</p>
+          </div>
+          <div class="step">
+            <strong>3. Confirm the Arrangement</strong>
+            <p>Service details, availability and commercial terms are discussed before a booking is confirmed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div>
+          <p class="eyebrow" style="color:#9de7b2">About SGE</p>
+          <h2>A Corporate Transport Coordination Partner</h2>
+          <p>
+            SGE Tours & Travels works in the corporate transportation ecosystem as a
+            transport vendor/subvendor, coordinating with companies, transport contractors
+            and vehicle partners according to business requirements.
+          </p>
+          <p>
+            Our focus is on professional communication, practical coordination and clear
+            expectations with every business partner.
+          </p>
+        </div>
+        <div>
+          <h2 style="font-size:1.5rem">Our Working Principles</h2>
+          <ul class="trust-list">
+            <li>Clear communication and requirement details</li>
+            <li>Coordination with suitable transport partners</li>
+            <li>Transparent discussion of availability and terms</li>
+            <li>Professional relationships with corporate clients and vendors</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Let's Connect</p>
+          <h2>Corporate & Vendor Enquiries</h2>
+          <p>Contact SGE Tours & Travels about corporate transport requirements, vendor/subvendor opportunities or fleet partnerships.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-box">
+            <h3>Business Enquiries</h3>
+            <p>Use the form to prepare an enquiry email.</p>
+            <p><strong>Email:</strong>Sgetravels9@gmail.com</p>
+            <p><strong>Service area:</strong>Bangalore</p>
+            <p><strong>Business hours:</strong> 24/7</p>
+          </div>
+          <div class="contact-box">
+            <form id="enquiryForm">
+              <div>
+                <label for="name">Your Name *</label>
+                <input id="name" name="name" required autocomplete="name" placeholder="Enter your name">
+              </div>
+              <div>
+                <label for="company">Company / Organisation</label>
+                <input id="company" name="company" autocomplete="organization" placeholder="Enter company name">
+              </div>
+              <div>
+                <label for="email">Your Email *</label>
+                <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
+              </div>
+              <div>
+                <label for="enquiryType">Enquiry Type *</label>
+                <select id="enquiryType" name="enquiryType" required>
+                  <option value="">Choose an enquiry type</option>
+                  <option>Corporate transportation requirement</option>
+                  <option>Transport vendor / subvendor partnership</option>
+                  <option>Vehicle fleet partnership</option>
+                  <option>Airport transfer / business travel</option>
+                  <option>Other business enquiry</option>
+                </select>
+              </div>
+              <div>
+                <label for="details">Requirement Details *</label>
+                <textarea id="details" name="details" required placeholder="Share routes, schedule, vehicle type, expected start date or other details."></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit">Prepare Email Enquiry</button>
+              <p class="form-note">This form opens your email app; it does not send or store enquiries on this website. Replace the placeholder business email in the code first.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <p>© <span id="year"></span> SGE Tours & Travels. All rights reserved.</p>
+      <p>Corporate Transportation Solutions</p>
+    </div>
+  </footer>
+
+  <script>
+    // IMPORTANT: Replace this placeholder with your real business email before publishing.
+    const BUSINESS_EMAIL = "YOUR-EMAIL@example.com";
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.getElementById("enquiryForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      if (BUSINESS_EMAIL === "YOUR-EMAIL@example.com") {
+        alert("Before using the enquiry form, replace YOUR-EMAIL@example.com in the HTML code with your real business email address.");
+        return;
+      }
+
+      const form = new FormData(event.target);
+      const subject = encodeURIComponent("SGE Tours & Travels - " + form.get("enquiryType"));
+      const body = encodeURIComponent(
+        "Name: " + form.get("name") + "\n" +
+        "Company: " + (form.get("company") || "Not provided") + "\n" +
+        "Email: " + form.get("email") + "\n" +
+        "Enquiry type: " + form.get("enquiryType") + "\n\n" +
+        "Details:\n" + form.get("details")
+      );
+
+      window.location.href = "mailto:" + BUSINESS_EMAIL + "?subject=" + subject + "&body=" + body;
+    });
+  </script>
+</body>
+</html>
